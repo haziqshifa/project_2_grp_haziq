@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="tect/css"/>
+
+    <script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+
+    <script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar styles */
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #0c90c9;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+
+    /* Slogan styles */
+    marquee {
+      background-color: #0c90c9;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    /* Logo styles */
+    img.logo {
+      display: block;
+      margin: auto;
+      margin-top: 20px;
+      width: 200px;
+    }
+
+    #slider-container {
+      max-width: 800px; /* Set your desired width */
+      margin: 0 auto;
+      overflow: hidden;
+      border: 3px solid #ccc; /* Set the border properties */
+      border-radius: 10px; /* Set border radius for rounded corners */
+    }
+
+    #slider {
+      width: 400%; /* 4 slides in total (100% * 4) */
+      text-align: center;
+    }
+
+    #slider img {
+      width: 800px; /* Set width */
+      height: 500px; /* Set height */
+      object-fit: cover; /* Preserve aspect ratio while covering the container */
+      display: none;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    #controls label {
+      cursor: pointer;
+      margin: 0 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+    }
+
+    #controls label.active {
+      background: #444;
+    }
+
+    #clock {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-top: 10px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Additional styling for better appearance (optional) */
+    #clock::before {
+      content: '\2022'; /* Unicode character for a small bullet */
+      color: #333;
+      margin-right: 5px;
+    }
+
+    #calendar {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    #calendar table {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    #calendar th,
+    #calendar td {
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+
+    #calendar th {
+      background-color: #0c90c9;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    #calendar td {
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #calendar td:hover {
+      background-color: #f0f0f0;
+    }
+
+    .today {
+      background-color: #0c90c9;
+      color: white;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    .welcome-sign {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1d2951;
+      margin-top: 20px;
+    }
+  </style>
+
+  <title>Hypertext Markup Language</title>
+</head>
+<body>
+
+<!-- Slogan -->
+<marquee bgcolor="#0c90c9" direction="left">Life Do Matter &emsp;&emsp;&emsp;&emsp;Take Care of It Before It Getting Worse&emsp;&emsp;&emsp;&emsp;
+  Trust in Every Prescription&emsp;&emsp;&emsp;&emsp;Your Prescription for a Healthier Life.&emsp;&emsp;&emsp;&emsp;Compassionate Care, Expert Advice.
+  &emsp;&emsp;&emsp;&emsp;Your Health, Our Priority.</marquee>
+
+<img src="logo.jpg" alt="logo" class="logo">
+<ul>
+  <li><a class="active" href="index.HTML">Home</a></li>
+  <li><a href="About Us.html">About Us</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="product.html">Product</a></li>
+  <li><a href="contactus.html">Contact Us</a></li>
+</ul>
+<br><br><br>
+<!--clock-->
+<div id="clock"></div>
+ <!-- Calendar -->
+ <div id="calendar"></div>
+<br><br><br>
+<!-- Photo Slide -->
+<div id="slider-container">
+  <div id="slider">
+    <img src="slideshow/pharmacy1.jpeg" alt="Slide 1" >
+    <img src="slideshow/pharmacy2.jpeg" alt="Slide 2" >
+    <img src="slideshow/pharmacy3.jpg" alt="Slide 3" >
+    <img src="slideshow/pharmacy4.jpg" alt="Slide 4" >
+  </div>
+  <div id="controls"></div>
+</div>
+<br><br><br>
+<div id="welcomeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeWelcomeModal()">&times;</span>
+    <h2>Welcome to Our Website!</h2>
+    <p>We are dedicated to providing you with the best services and products. Explore our website to learn more about what we offer.</p>
+    <p class="welcome-sign">Enjoy Your Stay!</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('#slider img');
+    const controls = document.getElementById('controls');
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach(slide => (slide.style.display = 'none'));
+      slides[index].style.display = 'block';
+    }
+
+    function updateControls(index) {
+      controls.childNodes.forEach((label, i) => {
+        label.classList.remove('active');
+        if (i === index) {
+          label.classList.add('active');
+        }
+      });
+    }
+
+    function changeSlide(index) {
+      currentSlide = index;
+      showSlide(currentSlide);
+      updateControls(currentSlide);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      changeSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      changeSlide(currentSlide);
+    }
+
+    slides.forEach((slide, index) => {
+      const label = document.createElement('label');
+      label.addEventListener('click', () => changeSlide(index));
+      controls.appendChild(label);
+    });
+
+    // Automatic slideshow (change slide every 5000 milliseconds)
+    setInterval(nextSlide, 5000);
+
+    // Initial setup
+    showSlide(currentSlide);
+    updateControls(currentSlide);
+
+     // Clock
+     function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const currentTime = new Date();
+      const hours = currentTime.getHours();
+      const minutes = currentTime.getMinutes();
+      const seconds = currentTime.getSeconds();
+      const formattedTime = `${hours}:${minutes}:${seconds}`;
+      clockElement.textContent = formattedTime;
+    }
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial setup
+    updateClock();
+  
+    // Calendar
+    const calendarContainer = document.getElementById('calendar');
+
+    function generateCalendar() {
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth();
+      const today = currentDate.getDate();
+
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+
+      let calendarHTML = `
+        <div>${monthNames[currentMonth]} ${currentYear}</div>
+        <table>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+      `;
+
+      let dayCounter = 1;
+
+      for (let i = 0; i < 6; i++) {
+        calendarHTML += '<tr>';
+
+        for (let j = 0; j < 7; j++) {
+          if ((i === 0 && j < firstDayOfMonth) || dayCounter > daysInMonth) {
+            calendarHTML += '<td></td>';
+          } else {
+            const isToday = (dayCounter === today && currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear());
+            calendarHTML += `<td${isToday ? ' class="today"' : ''}>${dayCounter}</td>`;
+            dayCounter++;
+          }
+        }
+
+        calendarHTML += '</tr>';
+      }
+
+      calendarHTML += '</table>';
+      calendarContainer.innerHTML = calendarHTML;
+    }
+
+    generateCalendar();
+
+    // Welcome Pop-up
+    const welcomeModal = document.getElementById('welcomeModal');
+
+    function showWelcomeModal() {
+      welcomeModal.style.display = 'block';
+    }
+
+    function closeWelcomeModal() {
+      welcomeModal.style.display = 'none';
+    }
+
+    // Show the welcome modal after a short delay (e.g., 2 seconds)
+    setTimeout(showWelcomeModal, 2000);
+
+    // Close the modal if the user clicks outside of it
+    window.onclick = function (event) {
+      if (event.target === welcomeModal) {
+        closeWelcomeModal();
+      }
+    };
+  });
+</script>
+</body>
+</html>

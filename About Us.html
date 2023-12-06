@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation bar styles */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #0c90c9;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        /* Slogan styles */
+        marquee {
+            background-color: #0c90c9;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Logo styles */
+        img.logo {
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            width: 200px;
+        }
+
+        /* Main Content styles */
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            color: #0c90c9;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Map container styles */
+        #map {
+            height: 300px;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slogan -->
+<marquee bgcolor="#0c90c9" direction="left">
+    Life Do Matter &emsp;&emsp;&emsp;&emsp;Take Care of It Before It Getting Worse&emsp;&emsp;&emsp;&emsp;
+    Trust in Every Prescription&emsp;&emsp;&emsp;&emsp;Your Prescription for a Healthier Life.
+    &emsp;&emsp;&emsp;&emsp;Compassionate Care, Expert Advice. Your Health, Our Priority.
+</marquee>
+
+<!-- Logo and Navigation Bar -->
+<img src="logo.jpg" alt="logo" class="logo">
+<ul>
+    <li><a class="active" href="index.HTML">Home</a></li>
+    <li><a href="About Us.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="product.html">Product</a></li>
+    <li><a href="contactus.html">Contact Us</a></li>
+</ul>
+
+<!-- Main Content -->
+<main>
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Our Pharmacy</h1>
+        <p>Your trusted source for quality medications and healthcare products.</p>
+    </section>
+
+    <!-- About Us and Location Sections in Columns -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our pharmacy has been serving the community for over 20 years, providing exceptional customer service and a wide range of products.</p>
+    </section>
+
+    <section id="location">
+        <h2>Location</h2>
+        <p>Ground Floor, No 10 & 12, Jalan Tembikai, Taman Muntiara, 14000 Bukit Mertajam, Pulau Pinang</p>
+        <!-- Map container -->
+        <div id="map"></div>
+    </section>
+
+    <!-- Vision and Mission Sections in Columns -->
+    <section id="vision">
+        <h2>Vision</h2>
+        <p>Enhancing our nation's health through excellence in the practice of pharmacy.</p>
+    </section>
+
+    <section id="mission">
+        <h2>Mission</h2>
+        <p>1. Uphold legislations and improve policies to ensure the quality of pharmaceutical products and services.</p>
+        <p>2. Ensure an effective and responsive organizational system toward sustainable quality services.</p>
+    </section>
+</main>
+
+<!-- Google Maps API Script -->
+<script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+<script>
+    function initMap() {
+        const location = {lat: 5.364732, lng: 100.457342};
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location
+        });
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "Our Pharmacy Location"
+        });
+    }
+</script>
+</body>
+</html>

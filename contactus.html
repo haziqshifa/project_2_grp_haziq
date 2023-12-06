@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  /* Your existing styles */
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+   /* Navigation bar styles */
+   ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #0c90c9;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        /* Slogan styles */
+        marquee {
+            background-color: #0c90c9;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Logo styles */
+        img.logo {
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            width: 200px;
+        }
+  h1 {
+    font-weight: lighter;
+    font-size: 50px;
+    color: #0c90c9;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: lighter;
+    padding-top: 40px;
+    color: #0c90c9;
+    font-size: 24px;
+  }
+
+  p {
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 0;
+    color: #555;
+    font-size: 12px;
+  }
+
+  footer {
+    background-color: #0c90c9;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: auto;
+    height: 25px;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #0c90c9;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  input[type="submit"] {
+    background-color: #0c90c9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0079b3;
+  }
+</style>
+
+<script>
+  function validateForm() {
+    var name = document.getElementById("Name").value;
+    var email = document.getElementById("Email").value;
+    var ic = document.getElementById("IC").value;
+    var description = document.getElementById("description").value;
+
+    var errorMessages = [];
+
+    // Validate Name
+    if (name === "") {
+      errorMessages.push("Please enter your name.");
+    }
+
+    // Validate Email
+    if (!isValidEmail(email)) {
+      errorMessages.push("Please enter a valid email address.");
+    }
+
+    // Validate IC No
+    if (!isValidIC(ic)) {
+      errorMessages.push("Please enter a valid IC number (numeric only).");
+    }
+
+    // Validate Report
+    if (description === "") {
+      errorMessages.push("Please fill in the report field.");
+    }
+
+    // If there are any errors, display them all
+    if (errorMessages.length > 0) {
+      alert("Validation Errors:\n" + errorMessages.join("\n"));
+      return false;
+    }
+
+    // If all validations pass, show success alert
+    alert("Form submitted successfully!");
+    return true;
+  }
+
+  function isValidEmail(email) {
+    // Basic email validation with @ and .com
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function isValidIC(ic) {
+    // Validate IC with numeric only
+    var icRegex = /^[0-9]+$/;
+    return icRegex.test(ic);
+  }
+</script>
+
+<title>Hypertext Markup Language</title>
+</head>
+<body>
+  
+<marquee bgcolor="#0c90c9" direction="left">Life Do Matter &emsp;&emsp;&emsp;&emsp;Take Care of It Before It Getting Worse&emsp;&emsp;&emsp;&emsp;Trust in Every Prescription&emsp;&emsp;&emsp;&emsp;Your Prescription for a Healthier Life.&emsp;&emsp;&emsp;&emsp;Compassionate Care, Expert Advice.
+&emsp;&emsp;&emsp;&emsp;Your Health, Our Priority.</marquee>
+
+<img src="logo.png" alt="logo" class="logo">
+<ul>
+  <li></li>
+  <li><a class="active" href="index.HTML">Home</a></li>
+  <li><a href="About Us.html">About Us</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="product.html">Product</a></li>
+  <li><a href="contactus.html">Contact Us</a></li>
+</ul>
+<h1>CONTACT US</h1>
+<form onsubmit="return validateForm()">
+  <label for="Name">Name:</label>
+  <input type="text" name="Name" id="Name" placeholder="Your Name">
+
+  <label for="Email">Email Address:</label>
+  <input type="text" name="Email" id="Email" placeholder="Your Email">
+
+  <label for="IC">IC No:</label>
+  <input type="text" name="IC" id="IC" placeholder="Your IC No">
+
+  <label for="description">Report:</label>
+  <textarea rows="5" cols="50" name="description" id="description" placeholder="Enter your report here..."></textarea>
+
+  <input type="submit" value="Submit">
+</form>
+
+<footer>
+  <h2>COME & VISIT US!!!!</h2>
+  <p>HYDS Pharmacy</p>
+  <p>Politeknik Seberang Perai Seberang Perai Tengah</p>
+  <p>Mukim 6, 13500 Pulau Pinang</p>
+  <p>TEL: +60123456789</p>
+</footer>
+
+</body>
+</html>
